@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-primary: #00ff88;
+  --cyber-secondary: #00d4ff;
+  --cyber-dark: #0a0f1c;
+  --cyber-darker: #050810;
+  --cyber-accent: #ff00ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background: linear-gradient(135deg, var(--cyber-darker) 0%, var(--cyber-dark) 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cyber-primary), var(--cyber-secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-primary);
+}
+
+/* Cyber Glow Effects */
+.cyber-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3),
+              0 0 40px rgba(0, 255, 136, 0.1),
+              inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.cyber-glow-blue {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+              0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.cyber-border {
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.02);
+}
+
+.cyber-text {
+  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(10, 15, 28, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+/* Matrix Rain Background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+  z-index: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 136, 0.03) 2px,
+      rgba(0, 255, 136, 0.03) 4px
+    );
+}
+
+/* Button Styles */
+.cyber-btn {
+  @apply px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: var(--cyber-primary);
+}
+
+.cyber-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+  transform: translateY(-2px);
+}
+
+.cyber-btn-primary {
+  @apply px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+  background: linear-gradient(135deg, var(--cyber-primary), var(--cyber-secondary));
+  color: var(--cyber-darker);
+}
+
+.cyber-btn-primary:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.cyber-card {
+  @apply rounded-xl p-6 transition-all duration-300;
+  background: linear-gradient(145deg, rgba(10, 15, 28, 0.9), rgba(5, 8, 16, 0.9));
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Input Styles */
+.cyber-input {
+  @apply w-full px-4 py-3 rounded-lg transition-all duration-300;
+  background: rgba(5, 8, 16, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: #e0e0e0;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: var(--cyber-primary);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(0, 255, 136, 0.3); }
+  50% { border-color: rgba(0, 255, 136, 0.8); }
+}
+
+.pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Terminal Effect */
+.terminal {
+  @apply rounded-lg p-4 font-mono text-sm;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.terminal-header {
+  @apply flex items-center gap-2 mb-3 pb-2;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.terminal-dot {
+  @apply w-3 h-3 rounded-full;
+}
+
+.terminal-content {
+  @apply text-green-400;
+}
+
+/* Progress Bar */
+.progress-bar {
+  @apply h-2 rounded-full overflow-hidden;
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary));
+}
+
+/* Sidebar */
+.sidebar-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer;
+}
+
+.sidebar-item:hover {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.sidebar-item.active {
+  background: rgba(0, 255, 136, 0.15);
+  border-left: 3px solid var(--cyber-primary);
+}
